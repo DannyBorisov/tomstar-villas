@@ -6,7 +6,7 @@ export function Hero() {
       {/* Left Panel - RAWAI */}
       <div
         className="hero-panel hero-panel-left"
-        style={{ backgroundImage: `url('/assets/rawai-hero.jpg')` }}
+        style={{ backgroundImage: `url('/assets/rawai-exterior.jpg')` }}
       >
         <div className="panel-overlay"></div>
         <div className="hero-text">
@@ -16,14 +16,14 @@ export function Hero() {
             Private pool villa in Phuket<br />
             with tropical vibes.
           </p>
-          <a href="#rawai" className="explore-btn">EXPLORE RAWAI</a>
+          <a href="/villas/rawai" className="explore-btn">EXPLORE RAWAI</a>
         </div>
       </div>
 
       {/* Right Panel - BANG TAO */}
       <div
         className="hero-panel hero-panel-right"
-        style={{ backgroundImage: `url('/assets/bangtao-hero.jpg')` }}
+        style={{ backgroundImage: `url('/assets/bangtao-exterior.jpg')` }}
       >
         <div className="panel-overlay"></div>
         <div className="hero-text">
@@ -33,7 +33,7 @@ export function Hero() {
             Designed for relaxation and<br />
             connection with nature.
           </p>
-          <a href="#bangtao" className="explore-btn">EXPLORE BANG TAO</a>
+          <a href="/villas/bangtao" className="explore-btn">EXPLORE BANG TAO</a>
         </div>
       </div>
 

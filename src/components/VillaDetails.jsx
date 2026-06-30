@@ -11,7 +11,7 @@ export function VillaDetails({
     { icon: "pool", label: "PRIVATE POOL", value: "" },
     { icon: "kitchen", label: "FULLY EQUIPPED KITCHEN", value: "" }
   ],
-  image = "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",
+  image,
   detailsLink = "#",
   reverse = false
 }) {

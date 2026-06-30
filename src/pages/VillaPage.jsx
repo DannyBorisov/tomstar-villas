@@ -21,9 +21,6 @@ export function VillaPage({ villaId }) {
       <Navbar />
       <VillaHero villa={villa} />
       <VillaGallery villa={villa} />
-      {villa.carouselImages && villa.carouselImages.length > 0 && (
-        <Carousel images={villa.carouselImages} title="INTERIOR GALLERY" />
-      )}
       <VillaAmenities villa={villa} />
       <VillaFeatures villa={villa} />
       <VillaLocation villa={villa} />

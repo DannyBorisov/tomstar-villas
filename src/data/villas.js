@@ -18,18 +18,12 @@ export const villas = {
     },
     heroImage: "/assets/rawai-exterior.jpg",
     galleryImages: [
-      "/assets/rawai-interior-1.jpg",
-      "/assets/rawai-interior-2.jpg",
-      "/assets/rawai-interior-3.jpg",
-      "/assets/rawai-interior-4.jpg"
+      "/assets/rawai/gallary-1.jpg",
+      "/assets/rawai/gallary-2.jpg",
+      "/assets/rawai/gallary-3.jpg",
+      "/assets/rawai/gallary-4.jpg"
     ],
-    carouselImages: [
-      "/assets/rawai-interior-1.jpg",
-      "/assets/rawai-interior-2.jpg",
-      "/assets/rawai-interior-3.jpg",
-      "/assets/rawai-interior-4.jpg",
-      "/assets/rawai-interior-5.jpg"
-    ],
+
     description: "Newly renovated private villa in top location with on-site parking, swimming pool, sun deck, shaded outside sitting areas, garden, backyard with sitting areas, top floor outside balconies, green views and tropical vibes.",
     amenities: [
       { icon: "pool", label: "Private Pool" },
@@ -109,16 +103,10 @@ export const villas = {
     },
     heroImage: "/assets/bangtao-exterior.jpg",
     galleryImages: [
-      "/assets/bangtao-interior-1.jpg",
-      "/assets/bangtao-interior-2.jpg",
-      "/assets/bangtao-interior-3.jpg",
-      "/assets/bangtao-interior-4.jpg"
-    ],
-    carouselImages: [
-      "/assets/bangtao-interior-1.jpg",
-      "/assets/bangtao-interior-2.jpg",
-      "/assets/bangtao-interior-3.jpg",
-      "/assets/bangtao-interior-4.jpg"
+      "/assets/bangtao/gallary-1.jpg",
+      "/assets/bangtao/gallary-2.jpg",
+      "/assets/bangtao/gallary-3.jpg",
+      "/assets/bangtao/gallary-4.jpg"
     ],
     description: "Newly renovated private villa in quiet surroundings with on-site parking, large swimming pool, pool bar, sun terrace, shaded outside sitting areas, sports/yoga corner, garden, and rooftop shaded area with mountain views.",
     amenities: [
