@@ -1,19 +1,20 @@
-import { useEffect, useRef } from 'preact/hooks'
-import mapboxgl from 'mapbox-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import { villas } from '../data/villas'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
-import { Carousel } from '../components/Carousel'
-import './VillaPage.css'
+import { useEffect, useRef } from "preact/hooks";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { villas } from "../data/villas";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { Carousel } from "../components/Carousel";
+import "./VillaPage.css";
+import { useRouter } from "preact-router";
 
-mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
 export function VillaPage({ villaId }) {
-  const villa = villas[villaId]
+  const villa = villas[villaId];
 
   if (!villa) {
-    return <div>Villa not found</div>
+    return <div>Villa not found</div>;
   }
 
   return (
@@ -27,13 +28,16 @@ export function VillaPage({ villaId }) {
       <VillaCTA villa={villa} />
       <Footer />
     </>
-  )
+  );
 }
 
 function VillaHero({ villa }) {
   return (
     <section className="villa-hero">
-      <div className="villa-hero-background" style={{ backgroundImage: `url('${villa.heroImage}')` }}></div>
+      <div
+        className="villa-hero-background"
+        style={{ backgroundImage: `url('${villa.heroImage}')` }}
+      ></div>
       <div className="villa-hero-fade"></div>
       <div className="villa-hero-content">
         <nav className="villa-breadcrumb">
@@ -41,7 +45,7 @@ function VillaHero({ villa }) {
           <span>&gt;</span>
           <a href="/#villas">Villas</a>
           <span>&gt;</span>
-          <span>{villa.name.replace('VILLA ', 'Villa ')}</span>
+          <span>{villa.name.replace("VILLA ", "Villa ")}</span>
         </nav>
 
         <h1 className="villa-hero-title">{villa.name}</h1>
@@ -49,29 +53,49 @@ function VillaHero({ villa }) {
 
         <div className="villa-hero-stats">
           <div className="villa-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
             </svg>
             <span>{villa.stats.guests} Guests</span>
           </div>
           <div className="villa-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6M3 18v2M21 18v2M6 10V7a2 2 0 012-2h8a2 2 0 012 2v3"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6M3 18v2M21 18v2M6 10V7a2 2 0 012-2h8a2 2 0 012 2v3" />
             </svg>
             <span>{villa.stats.bedrooms} Bedrooms</span>
           </div>
           <div className="villa-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M4 12h16a1 1 0 011 1v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3a1 1 0 011-1zM6 12V5a2 2 0 012-2h1a2 2 0 012 2v1"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M4 12h16a1 1 0 011 1v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3a1 1 0 011-1zM6 12V5a2 2 0 012-2h1a2 2 0 012 2v1" />
             </svg>
             <span>{villa.stats.bathrooms} Bathrooms</span>
           </div>
           <div className="villa-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M2 12h20M2 16h20"/>
-              <rect x="4" y="4" width="16" height="4" rx="1"/>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M2 12h20M2 16h20" />
+              <rect x="4" y="4" width="16" height="4" rx="1" />
             </svg>
             <span>Private Pool</span>
           </div>
@@ -82,17 +106,24 @@ function VillaHero({ villa }) {
             <button className="villa-book-btn">BOOK NOW</button>
             <div className="villa-book-dropdown-menu">
               {villa.bookingLinks.map((link, index) => (
-                <a key={index} href={link.href} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {link.name}
                 </a>
               ))}
             </div>
           </div>
-          <span className="villa-price">From <strong>${villa.price}</strong> / night</span>
+          <span className="villa-price">
+            From <strong>${villa.price}</strong> / night
+          </span>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function VillaGallery({ villa }) {
@@ -104,7 +135,10 @@ function VillaGallery({ villa }) {
 
       <div className="villa-gallery-grid">
         {villa.galleryImages.map((img, index) => (
-          <div key={index} className={`villa-gallery-item gallery-item-${index + 1}`}>
+          <div
+            key={index}
+            className={`villa-gallery-item gallery-item-${index + 1}`}
+          >
             <img src={img} alt={`${villa.name} - Image ${index + 1}`} />
           </div>
         ))}
@@ -112,59 +146,99 @@ function VillaGallery({ villa }) {
 
       {villa.galleryLink && (
         <div className="villa-gallery-link">
-          <a href={villa.galleryLink} target="_blank" rel="noopener noreferrer" className="villa-photos-btn">
+          <a
+            href={villa.galleryLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="villa-photos-btn"
+          >
             VIEW ALL PHOTOS
           </a>
         </div>
       )}
     </section>
-  )
+  );
 }
 
 function VillaAmenities({ villa }) {
   const icons = {
     pool: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M2 12h20M2 16h20"/>
-        <rect x="4" y="4" width="16" height="4" rx="1"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path d="M2 12h20M2 16h20" />
+        <rect x="4" y="4" width="16" height="4" rx="1" />
       </svg>
     ),
     wifi: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M5 12.55a11 11 0 0114 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path d="M5 12.55a11 11 0 0114 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
       </svg>
     ),
     ac: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="2" y="4" width="20" height="8" rx="2"/>
-        <path d="M6 16v2M10 16v4M14 16v2M18 16v4"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <rect x="2" y="4" width="20" height="8" rx="2" />
+        <path d="M6 16v2M10 16v4M14 16v2M18 16v4" />
       </svg>
     ),
     kitchen: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="4" y="3" width="16" height="18" rx="2"/>
-        <path d="M4 9h16M4 15h16"/>
-        <circle cx="12" cy="12" r="1"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <rect x="4" y="3" width="16" height="18" rx="2" />
+        <path d="M4 9h16M4 15h16" />
+        <circle cx="12" cy="12" r="1" />
       </svg>
     ),
     tv: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="2" y="5" width="20" height="14" rx="2"/>
-        <path d="M8 21h8"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <rect x="2" y="5" width="20" height="14" rx="2" />
+        <path d="M8 21h8" />
       </svg>
     ),
     cleaning: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
       </svg>
     ),
     parking: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <path d="M9 17V7h4a3 3 0 010 6H9"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 17V7h4a3 3 0 010 6H9" />
       </svg>
-    )
-  }
+    ),
+  };
 
   return (
     <section className="villa-amenities-section">
@@ -174,15 +248,13 @@ function VillaAmenities({ villa }) {
       <div className="villa-amenities-grid">
         {villa.amenities.map((amenity, index) => (
           <div key={index} className="villa-amenity-item">
-            <div className="villa-amenity-icon">
-              {icons[amenity.icon]}
-            </div>
+            <div className="villa-amenity-icon">{icons[amenity.icon]}</div>
             <span>{amenity.label}</span>
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 function VillaFeatures({ villa }) {
@@ -194,8 +266,13 @@ function VillaFeatures({ villa }) {
           <ul className="villa-features-list">
             {villa.features.map((feature, index) => (
               <li key={index}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12l5 5L20 7"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12l5 5L20 7" />
                 </svg>
                 {feature}
               </li>
@@ -208,9 +285,14 @@ function VillaFeatures({ villa }) {
           <ul className="villa-rules-list">
             {villa.rules.map((rule, index) => (
               <li key={index}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 8v4M12 16h.01"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4M12 16h.01" />
                 </svg>
                 {rule}
               </li>
@@ -223,8 +305,13 @@ function VillaFeatures({ villa }) {
           <ul className="villa-services-list">
             {villa.services.map((service, index) => (
               <li key={index}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" />
                 </svg>
                 {service}
               </li>
@@ -233,7 +320,7 @@ function VillaFeatures({ villa }) {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function VillaLocation({ villa }) {
@@ -248,8 +335,13 @@ function VillaLocation({ villa }) {
         <div className="villa-distances">
           {villa.location.distances.map((distance, index) => (
             <div key={index} className="villa-distance-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
               </svg>
               <div>
                 <strong>{distance.time}</strong>
@@ -272,41 +364,66 @@ function VillaLocation({ villa }) {
 
       <VillaMap coordinates={villa.location.coordinates} />
     </section>
-  )
+  );
 }
 
 function VillaMap({ coordinates }) {
-  const mapContainer = useRef(null)
-  const map = useRef(null)
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const marker = useRef(null);
 
+  // init map only once
   useEffect(() => {
-    if (map.current) return
+    if (map.current) return;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v12',
+      style: "mapbox://styles/mapbox/streets-v12",
       center: [coordinates.lng, coordinates.lat],
-      zoom: 14
-    })
+      zoom: 14,
+    });
 
-    const marker = document.createElement('div')
-    marker.innerHTML = `<svg viewBox="0 0 24 24" fill="#b8986e" width="40" height="40">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
-    </svg>`
-    marker.style.cursor = 'pointer'
+    const el = document.createElement("div");
+    el.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="#b8986e" width="40" height="40">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+      </svg>
+    `;
 
-    new mapboxgl.Marker(marker)
+    marker.current = new mapboxgl.Marker(el)
       .setLngLat([coordinates.lng, coordinates.lat])
-      .addTo(map.current)
+      .addTo(map.current);
+  }, []);
 
-    return () => map.current?.remove()
-  }, [coordinates])
+  // update map when route / coordinates change
+  useEffect(() => {
+    if (!map.current) return;
 
-  return <div ref={mapContainer} className="villa-location-map" />
+    map.current.flyTo({
+      center: [coordinates.lng, coordinates.lat],
+      zoom: 14,
+      essential: true,
+    });
+
+    if (marker.current) {
+      marker.current.setLngLat([coordinates.lng, coordinates.lat]);
+    }
+  }, [coordinates]);
+
+  // resize fix (important for route changes/layout shifts)
+  useEffect(() => {
+    const t = setTimeout(() => {
+      map.current?.resize();
+    }, 100);
+
+    return () => clearTimeout(t);
+  });
+
+  return <div ref={mapContainer} className="villa-location-map" />;
 }
 
 function VillaCTA({ villa }) {
-  const villaName = villa.name.replace('VILLA ', '')
+  const villaName = villa.name.replace("VILLA ", "");
 
   return (
     <section className="villa-cta-section">
@@ -317,14 +434,22 @@ function VillaCTA({ villa }) {
           <button className="villa-cta-btn">BOOK NOW</button>
           <div className="villa-cta-dropdown-menu">
             {villa.bookingLinks.map((link, index) => (
-              <a key={index} href={link.href} target="_blank" rel="noopener noreferrer">
+              <a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {link.name}
               </a>
             ))}
           </div>
         </div>
       </div>
-      <div className="villa-cta-decoration" style={{ backgroundImage: `url('${villa.heroImage}')` }}></div>
+      <div
+        className="villa-cta-decoration"
+        style={{ backgroundImage: `url('${villa.heroImage}')` }}
+      ></div>
     </section>
-  )
+  );
 }
