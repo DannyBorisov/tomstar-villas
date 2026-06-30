@@ -897,6 +897,21 @@
     box-sizing: border-box;
   }
 
+  .villa-book-dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .villa-book-dropdown-menu::before {
+    top: 100%;
+    bottom: auto;
+    border: 8px solid transparent;
+    border-bottom-color: transparent;
+    border-top-color: #fff;
+  }
+
   .villa-cta-dropdown {
     width: 100%;
     max-width: 100%;
