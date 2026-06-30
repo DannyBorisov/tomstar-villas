@@ -150,3 +150,41 @@
     gap: 20px;
   }
 }
+
+@media (max-width: 640px) {
+  .villa-amenities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    justify-items: center;
+  }
+
+  .amenity-item {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .villa-details-title {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+
+  .villa-details-desc {
+    font-size: 0.95rem;
+  }
+
+  .villa-amenities {
+    gap: 20px 12px;
+  }
+
+  .amenity-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .amenity-label {
+    font-size: 0.6rem;
+  }
+}

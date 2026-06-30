@@ -125,3 +125,204 @@
   background: #f5f0ea;
   color: #b8986e;
 }
+
+/* Hamburger Button - Hidden by default on desktop */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #5a5a5a;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation to X */
+.hamburger-btn.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Backdrop */
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: #f5f0ea;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.drawer-link {
+  text-decoration: none;
+  color: #5a5a5a;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e8e2da;
+  transition: color 0.3s ease;
+}
+
+.drawer-link:hover {
+  color: #b8986e;
+}
+
+.drawer-divider {
+  width: 100%;
+  height: 1px;
+  background: #d4cec4;
+  margin: 1.5rem 0;
+}
+
+.drawer-booking {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drawer-booking-title {
+  color: #5a5a5a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.75rem 0;
+  background: #b8986e;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.drawer-booking-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #5a5a5a;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e8e2da;
+  transition: color 0.3s ease;
+}
+
+.drawer-booking-link::before {
+  content: '›';
+  color: #b8986e;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.drawer-booking-link:hover {
+  color: #b8986e;
+}
+
+/* Responsive - 768px breakpoint */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar-container {
+    height: 70px;
+  }
+
+  .logo-image {
+    height: 50px;
+  }
+
+  /* Hide desktop nav and book button */
+  .navbar-nav,
+  .book-dropdown {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Show mobile elements */
+  .mobile-backdrop,
+  .mobile-drawer {
+    display: block;
+  }
+}
+
+/* Small mobile refinements */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar-container {
+    height: 60px;
+  }
+
+  .logo-image {
+    height: 45px;
+  }
+
+  .mobile-drawer {
+    width: 260px;
+    padding: 1.5rem 1.25rem;
+  }
+}

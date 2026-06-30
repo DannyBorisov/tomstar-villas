@@ -703,8 +703,10 @@
 
   .villa-hero-background {
     position: relative;
+    width: 100%;
     height: 50vh;
     min-height: 300px;
+    flex-shrink: 0;
     background-position: center;
   }
 
@@ -802,6 +804,55 @@
   }
 }
 
+/* 768px - Tablet portrait / Large mobile */
+@media (max-width: 768px) {
+  .villa-hero-background {
+    height: 45vh;
+    min-height: 280px;
+  }
+
+  .villa-hero-title {
+    font-size: 2rem;
+  }
+
+  .villa-hero-tagline {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .villa-breadcrumb {
+    font-size: 0.75rem;
+  }
+
+  .villa-hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .villa-stat {
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(139, 115, 85, 0.15);
+    justify-content: center;
+  }
+
+  .villa-stat:nth-child(1) {
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .villa-stat:nth-child(2) {
+    border-bottom: none;
+  }
+
+  .villa-stat:nth-child(3) {
+    border-right: none;
+  }
+}
+
+/* 640px - Small tablet / Large phone */
 @media (max-width: 640px) {
   .villa-hero-content {
     padding: 2rem 1.5rem;
@@ -812,13 +863,13 @@
   }
 
   .villa-hero-stats {
-    gap: 0.75rem;
+    gap: 0;
   }
 
   .villa-stat {
     padding: 0.5rem;
     background: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
+    border-radius: 0;
   }
 
   .villa-stat svg {
@@ -832,11 +883,124 @@
     gap: 1rem;
   }
 
+  /* Gallery single column */
+  .villa-gallery-section {
+    padding: 2rem 1rem;
+  }
+
+  .villa-gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 200px);
+  }
+
+  .gallery-item-1,
+  .gallery-item-2,
+  .gallery-item-3,
+  .gallery-item-4 {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  /* Amenities 2x3 grid */
+  .villa-amenities-section {
+    padding: 2rem 1rem;
+  }
+
   .villa-amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .villa-amenity-icon {
+    width: 36px;
+    height: 36px;
   }
 
   .villa-amenity-item {
-    width: calc(33% - 1rem);
+    width: auto;
+  }
+
+  .villa-amenity-item span {
+    font-size: 0.8rem;
+  }
+
+  /* Location section */
+  .villa-location-content {
+    padding: 2rem 1rem;
+  }
+
+  .villa-location-map {
+    height: 250px;
+  }
+
+  .villa-nearby-list {
+    columns: 1;
+  }
+
+  /* CTA section */
+  .villa-cta-content {
+    padding: 2rem 1rem;
+  }
+
+  /* Bedrooms section */
+  .villa-bedrooms-section {
+    padding: 2rem 1rem;
+  }
+
+  /* Features section */
+  .villa-features-section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* 480px - Small mobile */
+@media (max-width: 480px) {
+  .villa-hero-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .villa-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .villa-hero-tagline {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .villa-breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+
+  .villa-stat svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .villa-stat span {
+    font-size: 0.8rem;
+  }
+
+  .villa-section-title {
+    font-size: 1.5rem;
+  }
+
+  .villa-book-btn {
+    padding: 0.875rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  .villa-gallery-grid {
+    grid-template-rows: repeat(4, 180px);
+  }
+
+  .villa-cta-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .villa-cta-content p {
+    font-size: 0.9rem;
   }
 }
