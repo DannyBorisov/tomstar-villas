@@ -117,9 +117,6 @@ function VillaHero({ villa }) {
               ))}
             </div>
           </div>
-          <span className="villa-price">
-            From <strong>${villa.price}</strong> / night
-          </span>
         </div>
       </div>
     </section>

@@ -719,6 +719,8 @@
     padding: 3rem 2rem;
     max-width: 100%;
     background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .villa-hero-title {
@@ -879,8 +881,42 @@
 
   .villa-hero-actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1rem;
+    width: 100%;
+  }
+
+  .villa-book-dropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .villa-book-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .villa-cta-dropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .villa-cta-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .villa-gallery-link {
+    padding: 0;
+  }
+
+  .villa-photos-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 
   /* Gallery single column */

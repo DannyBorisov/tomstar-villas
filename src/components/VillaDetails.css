@@ -163,6 +163,13 @@
     min-width: auto;
     width: 100%;
   }
+
+  .villa-gallery-btn {
+    align-self: stretch;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 480px) {
