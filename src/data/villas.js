@@ -89,6 +89,7 @@ export const villas = {
     id: "bangtao",
     name: "VILLA BANG TAO",
     tagline: "Newly renovated private villa in quiet surroundings with large swimming pool, pool bar, sun terrace, shaded outside sitting areas, sports/yoga corner, garden, and rooftop shaded area with mountain views. Perfect for family stays or groups of friends.",
+    galleryLink: "https://photos.google.com/share/AF1QipNBTuJh3WpZB617OGeTP9eXjnqFJkWY4KuPDhBTqabr3nGils5ZymufgkDrRP9vGA?key=X2daTVd5SFRlRFgxV1lhamE5TGl1SFZlVHFJWFhn",
     price: 280,
         bookingLinks: [
       { name: 'Airbnb', href: 'https://www.airbnb.com/rooms/1589206898956083265?guests=1&adults=1&s=67&unique_share_id=d1e3b8dd-c6d2-4608-9986-fd64afe08fe5' },
