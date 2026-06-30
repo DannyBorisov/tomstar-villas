@@ -1,0 +1,162 @@
+.carousel-section {
+  padding: 5rem 4rem;
+  background: #faf9f7;
+}
+
+.carousel-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #2c2c2c;
+  text-align: center;
+  margin: 0;
+}
+
+.carousel-divider {
+  width: 60px;
+  height: 1px;
+  background: #8b7355;
+  margin: 1rem auto 3rem;
+  position: relative;
+}
+
+.carousel-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #8b7355;
+  border-radius: 50%;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carousel-slide {
+  flex: 1;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carousel-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #8b7355;
+  background: white;
+  color: #8b7355;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: #8b7355;
+  color: white;
+}
+
+.carousel-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #8b7355;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active,
+.carousel-dot:hover {
+  background: #8b7355;
+}
+
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.carousel-thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.carousel-thumbnail.active,
+.carousel-thumbnail:hover {
+  border-color: #8b7355;
+  opacity: 1;
+}
+
+.carousel-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-thumbnails {
+    gap: 0.5rem;
+  }
+
+  .carousel-thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+}

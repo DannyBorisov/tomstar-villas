@@ -1,0 +1,30 @@
+.footer-section {
+  width: 100%;
+}
+
+.footer-section-amenities {
+  margin-bottom: 2rem;
+}
+
+.footer-section-cta {
+  margin-bottom: 2rem;
+}
+
+.footer-section-social {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .footer-section-amenities {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-section-cta {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-section-social {
+    padding-top: 1rem;
+  }
+}

@@ -1,0 +1,94 @@
+.footer-cta {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer-tagline {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 1.4rem;
+  color: #3d3d3d;
+  letter-spacing: 6px;
+  margin: 0 0 30px 0;
+  font-weight: 400;
+}
+
+.footer-book-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.footer-book-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background-color: #a08560;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-book-btn:hover {
+  background-color: #8a7050;
+}
+
+.footer-book-dropdown-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  min-width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  z-index: 100;
+}
+
+.footer-book-dropdown:hover .footer-book-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer-book-dropdown-menu::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #fff;
+}
+
+.footer-book-dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #3d3d3d;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.footer-book-dropdown-menu a:hover {
+  background: #f5f0ea;
+  color: #a08560;
+}
+
+@media (max-width: 768px) {
+  .footer-tagline {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+  }
+
+  .footer-book-btn {
+    padding: 12px 30px;
+  }
+}
